@@ -1,0 +1,82 @@
+class RestaurantApp:
+    def __init__(self):
+        
+        self.menu = {"Burger": 8, "Snack": 10, "Pizza": 5, "Pasta": 14 }
+        self.order = [ ]
+#Display restaurant menu
+
+    def show_menu(self):
+        print("\nMenu: ")
+
+        for item, price in self.menu.items():
+            print(f"{item}: ${price}")
+#Take new order
+    def take_order(self):
+        item = input("Enter item name: ").title()
+
+        if item in self.menu:
+            self.order.append(item)
+            print(f"{item} added to order.")
+        else:
+            print("Item not found! ")
+#View all orders
+
+    def view_orders(self):
+
+        if not self.order:
+            print("No orders yet.")
+        else:
+            print("Orders: ")
+            for i, item in enumerate(self.order, 1):
+                print(f"{i}. {item}")
+
+#Calculate total bill
+
+    def total_bill(self):
+        total = sum(self.menu[item] for item in self.orders)
+        print(f"Total Bill: ${total}")
+
+#Run main menu
+
+    def run(self):
+        while True:
+            print("======Restaurant App ======")
+            print("1. Show Menu\n2. Take Order\n3. View Orders\n4. Total Bill\n5. Exit")
+            choice = input("Choose an option: ")
+            if choice == '1':
+                self.show_menu()
+            elif choice == '2':
+                self.take_order()
+            elif choice == '3':
+                self.view_orders()
+            elif choice == '4':
+                self.total_bill()
+            elif choice == '5':
+                print("Goodbye: ")
+                break
+            else:
+                print("Invalid choice! ")
+
+RestaurantApp().run()
+
+
+
+            
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
